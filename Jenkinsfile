@@ -48,13 +48,6 @@ pipeline {
         stage('CleanWorkspace') {
             steps {
                 cleanWs()
-                deleteDir()
-                dir("pipeline-docker-maven@tmp") {
-                deleteDir()
-                }
-                dir("pipeline-docker-maven_ws-cleanup*") {
-                deleteDir()
-                }
                 }
             }
         }

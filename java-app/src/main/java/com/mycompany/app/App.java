@@ -6,7 +6,7 @@ package com.mycompany.app;
 public class App
 {
 
-    private final String message = "Hello from Pipeline! Second try";
+    private final String message = "Hello from Pipeline! 3rd try";
 
     public App() {}
 
