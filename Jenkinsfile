@@ -20,7 +20,7 @@ pipeline {
             post {
                 success {
                    archiveArtifacts artifacts: 'java-app/target/*.jar', fingerprint: true
-                   sh 'chown 1000:1000 /var/jenkins_home/workspace/pipeline-docker-maven/java-app/target -R'
+                   
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
             post {
                 always {
                     junit 'java-app/target/surefire-reports/*.xml'
-                    sh 'chown 1000:1000 /var/jenkins_home/workspace/pipeline-docker-maven/java-app/target -R'
+                  
                 }
             }
         }

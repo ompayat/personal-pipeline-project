@@ -24,6 +24,7 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-c
 
 RUN usermod -aG docker jenkins
 RUN usermod -aG root jenkins
+RUN apt-get install sudo
 
 
 USER jenkins
