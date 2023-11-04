@@ -7,7 +7,11 @@ pipeline {
     }
 
     stages {
-
+        stage('CleanWorkspace') {
+            steps {
+                cleanWs()
+            }
+        }
         stage('Build') {
             steps {
                 sh '''
@@ -20,7 +24,6 @@ pipeline {
             post {
                 success {
                    archiveArtifacts artifacts: 'java-app/target/*.jar', fingerprint: true
-                   
                 }
             }
         }
@@ -33,7 +36,6 @@ pipeline {
             post {
                 always {
                     junit 'java-app/target/surefire-reports/*.xml'
-                  
                 }
             }
         }
