@@ -22,6 +22,9 @@ pipeline {
                    archiveArtifacts artifacts: 'java-app/target/*.jar', fingerprint: true
                 }
             }
+            steps {
+                sh 'chown 1000:1000 /var/jenkins_home/workspace/pipeline-docker-maven/java-app/target -R'
+            }
         }
 
         stage('Test') {
@@ -33,6 +36,9 @@ pipeline {
                 always {
                     junit 'java-app/target/surefire-reports/*.xml'
                 }
+            }
+            steps {
+                sh 'chown 1000:1000 /var/jenkins_home/workspace/pipeline-docker-maven/java-app/target -R'
             }
         }
 
